@@ -2,27 +2,25 @@
 
 public class Flock : MonoBehaviour {
 
-    // Access the FlockManager script
+    
     public FlockManager myManager;
-    // Prefab initial speed;
+    
     float speed;
-    // Bool used to check the swim limits
+    
     bool turning = false;
 
     void Start() {
 
-        // Assign a random speed to each this prefab
+       
         speed = Random.Range(myManager.minSpeed, myManager.maxSpeed);
     }
 
-    // Update is called once per frame
+   
     void Update() {
 
-        // Determine the bounding box of the manager cube
         Bounds b = new Bounds(myManager.transform.position, myManager.swimLimits * 2.0f);
 
-        // If the fish is outside the bounds of the cube or about to hit something
-        // then start turning around
+        
         RaycastHit hit = new RaycastHit();
         Vector3 direction = Vector3.zero;
 
@@ -40,22 +38,21 @@ public class Flock : MonoBehaviour {
             turning = false;
         }
 
-        // Test if we're turning
         if (turning) {
 
-            // Turn towards the centre of the cube
+           
             transform.rotation = Quaternion.Slerp(transform.rotation,
                                                   Quaternion.LookRotation(direction),
                                                   myManager.rotationSpeed * Time.deltaTime);
         } else {
 
-            // 10% chance of altering prefab speed
+           
             if (Random.Range(0.0f, 100.0f) < 10.0f) {
 
                 speed = Random.Range(myManager.minSpeed, myManager.maxSpeed);
             }
 
-            // 20& chance of applying the flocking rules
+            
             if (Random.Range(0.0f, 100.0f) < 20.0f) {
 
                 ApplyRules();
@@ -99,7 +96,7 @@ public class Flock : MonoBehaviour {
 
         if (groupSize > 0) {
 
-            // Find the average centre of the group then add a vector to the target (goalPos)
+           
             vcentre = vcentre / groupSize + (myManager.goalPos - this.transform.position);
             speed = gSpeed / groupSize;
 
