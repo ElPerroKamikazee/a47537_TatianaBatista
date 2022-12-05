@@ -352,7 +352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4181184143497572}
   - component: {fileID: 95498490939354066}
-  - component: {fileID: -7933417306851094876}
+  - component: {fileID: -8982461949939151237}
   m_Layer: 0
   m_Name: GreenFish
   m_TagString: Untagged
@@ -400,7 +400,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-7933417306851094876
+--- !u!114 &-8982461949939151237
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
